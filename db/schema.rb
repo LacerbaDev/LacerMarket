@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160115111024) do
+ActiveRecord::Schema.define(version: 20160115191324) do
 
   create_table "contents", force: :cascade do |t|
     t.string   "titolo"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20160115111024) do
     t.decimal  "price"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|

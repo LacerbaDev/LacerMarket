@@ -15,5 +15,9 @@
   <%= @content.price %>
 </p>
 
-<%= link_to 'Edit', edit_content_path(@content) %> |
-<%= link_to 'Back', contents_path %>
+
+<% if @content.user == current_user %>
+	<%= link_to 'Edit', edit_content_path(@content) %> |
+<% end %>
+
+	<%= link_to 'Back', contents_path %>
