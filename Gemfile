@@ -14,6 +14,7 @@ gem 'materialize-sass'
 
 gem 'devise'
 
+gem "paperclip", "~> 4.3"
 
 
 group :development, :test do
