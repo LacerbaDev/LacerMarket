@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Contenuti</h1>
+<h1>Listing Contents</h1>
 
 <table>
   <thead>
     <tr>
       <th>Titolo</th>
       <th>Descrizione</th>
-      <th>Nome</th>
+      <th>Utente</th>
       <th>Prezzo</th>
       <th colspan="3"></th>
     </tr>
@@ -20,7 +20,7 @@
         <td><%= content.descrizione %></td>
         <td><%= content.user.name %></td>
         <td><%= content.price %></td>
-        <td><%= link_to 'Mostra', content %></td>
+        <td><%= link_to 'mostra', content %></td>
         <% if content.user == current_user %>
           <td><%= link_to 'Edit', edit_content_path(content) %></td>
           <td><%= link_to 'Destroy', content, method: :delete, data: { confirm: 'Sei sicuro di cancellare?' } %></td>

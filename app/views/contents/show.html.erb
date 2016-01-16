@@ -1,17 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Titolo:</strong>
   <%= @content.titolo %>
 </p>
 
 <p>
-  <strong>Descrizione:</strong>
   <%= @content.descrizione %>
 </p>
 
 <p>
-  <strong>Price:</strong>
   <%= @content.price %>
 </p>
 
@@ -19,5 +16,4 @@
 <% if @content.user == current_user %>
 	<%= link_to 'Edit', edit_content_path(@content) %> |
 <% end %>
-
-	<%= link_to 'Back', contents_path %>
+<%= link_to 'Back', contents_path %>

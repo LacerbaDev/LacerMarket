@@ -1,7 +1,7 @@
 class ContentsController < ApplicationController
   before_action :set_content, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :check_user, only: [:edit, :destroy]
+  before_action :check_user, only: [:edit, :update, :destroy]
 
 
   def index
@@ -11,6 +11,7 @@ class ContentsController < ApplicationController
 
   def show
   end
+
 
   def new
     @content = current_user.contents.build
@@ -48,6 +49,7 @@ class ContentsController < ApplicationController
     @content.destroy
     respond_to do |format|
       format.html { redirect_to contents_url, notice: 'Content was successfully destroyed.' }
+      format.json { head :no_content }
     end
   end
 

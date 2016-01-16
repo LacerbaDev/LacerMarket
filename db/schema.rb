@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20160115191324) do
+ActiveRecord::Schema.define(version: 20160116152826) do
 
   create_table "contents", force: :cascade do |t|
     t.string   "titolo"
@@ -22,9 +21,6 @@ ActiveRecord::Schema.define(version: 20160115191324) do
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
   end
-=======
-ActiveRecord::Schema.define(version: 20151203143843) do
->>>>>>> parent of 8fbb7d8... creato contenuti
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
