@@ -6,6 +6,10 @@ body {
     flex-direction: column;
   }
 
+  h1 {
+  	font-size: 3em;
+  }
+
   main {
     flex: 1 0 auto;
   }
@@ -27,5 +31,8 @@ body {
  	font-size: 2em;
  }
 
+.btn-form {
+	width: 100%;
+}
 
       
