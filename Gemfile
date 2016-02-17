@@ -16,6 +16,10 @@ gem 'devise'
 
 gem "paperclip", "~> 4.3"
 
+gem 'will_paginate', '~> 3.0.6'
+
+gem 'will_paginate-materialize'
+
 
 group :development, :test do
   gem 'byebug'
