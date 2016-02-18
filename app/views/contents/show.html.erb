@@ -12,8 +12,32 @@
 		<p><b>Venduto da <%= @content.user.name %></b></p>
 
 		<p><%= @content.descrizione %></p>
+
+		<% if current_user %>
+
+			<%= form_tag compra_path(slug: @content.slug) do %>
+			  <script
+			    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+			    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+			    data-amount="<%= (@content.price * 100).floor %>"
+			    data-name="LacerMarket"
+			    data-description="<%= @content.titolo %>"
+			    data-email="<%= current_user.email %>"
+			    data-currency="eur"
+			    data-locale="auto">
+			  </script>
+			<% end %>
+
+		<% else %>
+			
+			<p>Fai <%= link_to "Log In", new_user_session_path %> oppure <%= link_to "Registrati", new_user_registration_path %> per poter acquistare questo contenuto</p>
+
+		<% end %>
 	</div>
 </div>
+
+
+
 
 
 <% if @content.user == current_user %>
