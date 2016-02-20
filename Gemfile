@@ -28,6 +28,7 @@ gem 'stripe'
 
 gem 'aasm'
 
+gem 'aws-sdk'
 
 group :development, :test do
   gem 'byebug'
