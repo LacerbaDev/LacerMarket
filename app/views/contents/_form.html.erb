@@ -1,7 +1,7 @@
 <%= form_for @content, html: { multipart: true } do |f| %>
   <% if @content.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@content.errors.count, "error") %> prohibited this content from being saved:</h2>
+      <h4><b><%= pluralize(@content.errors.count, "error") %> non permettono al form di essere inviato</b></h4>
 
       <ul>
       <% @content.errors.full_messages.each do |message| %>

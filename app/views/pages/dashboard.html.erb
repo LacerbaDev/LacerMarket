@@ -1,0 +1,90 @@
+<h1 class="center">Dashboard</h1>
+
+<div class="row">
+<div class="col s12">
+  <ul class="tabs">
+    <li class="tab col s3"><a href="#storico">Storico</a></li>
+    <li class="tab col s3"><a href="#vendita">In vendita</a></li>
+  </ul>
+</div>
+
+	<div id="storico" class="col s12">
+		<h4><b>Vendite</b></h4>
+		<table>
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Prezzo</th>
+					<th>Data</th>
+					<th>Acquirente</th>
+				</tr>
+			</thead>
+			<tbdoy>
+				<% @sales.each do |sale| %>
+				<tr>
+					<th><%= sale.content.titolo %></th>
+					<th><%= number_to_currency(sale.amount / 100) %></th>
+					<th><%= time_ago_in_words(sale.created_at) %> fa</th>
+					<th><%= sale.email_acquirente %></th>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+
+		<br><br>
+
+		<h4><b>Acquisti</b></h4>
+		<table>
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Prezzo</th>
+					<th>Data di creazione</th>
+					<th>Venditore</th>
+				</tr>
+			</thead>
+			<tbdoy>
+				<% @purchased.each do |purchased| %>
+				<tr>
+					<th><%= link_to purchased.content.titolo, pickup_path(purchased.guid) %></th>
+					<th><%= number_to_currency(purchased.amount / 100) %></th>
+					<th><%= time_ago_in_words(purchased.created_at) %></th>
+					<th><%= purchased.email_venditore %></th>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+
+
+
+	</div>
+
+
+	<div id="vendita" class="col s12">
+		<table>
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Prezzo</th>
+					<th>Data di creazione</th>
+					<th>Azioni</th>
+				</tr>
+			</thead>
+			<tbdoy>
+				<% @content.each do |content| %>
+				<tr>
+					<th><%= link_to content.titolo, content_path(content) %></th>
+					<th><%= number_to_currency(content.price) %></th>
+					<th><%= time_ago_in_words(content.created_at) %> fa</th>
+					<th>
+						<%= link_to "Modifica", edit_content_path(content) %> |
+						<%= link_to "Elimina", content, method: :delete, data: { confirm: 'Sei sicuro di eliminare questo contenuto?' } %>
+					</th>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+
+
+</div>
